@@ -1,7 +1,8 @@
 :root {
-  --bg: #fafdef;
+  --bg: #f2f3ec;
   --text: #0f172a;
   --accent: #2563eb;
+  --background: #151212;
 }
 
 * {

@@ -1,13 +1,11 @@
 "use client";
-import { ReactNode } from "react";
+
 import { Renderer, Program, Mesh, Triangle } from "ogl";
 import { useEffect, useRef } from "react";
 
 import "../styles/balatro.css";
 
 interface BalatroProps {
-  children?: ReactNode;
-
   spinRotation?: number;
   spinSpeed?: number;
   offset?: [number, number];
@@ -21,11 +19,6 @@ interface BalatroProps {
   spinEase?: number;
   isRotate?: boolean;
   mouseInteraction?: boolean;
-  magnetRadius?: number;
-  ringRadius?: number;
-  waveSpeed?: number;
-  waveAmplitude?: number;
-  fieldStrength?: number;
 }
 
 function hexToVec4(hex: string): [number, number, number, number] {
@@ -77,11 +70,6 @@ uniform float uPixelFilter;
 uniform float uSpinEase;
 uniform bool uIsRotate;
 uniform vec2 uMouse;
-uniform float uMagnetRadius;
-uniform float uRingRadius;
-uniform float uWaveSpeed;
-uniform float uWaveAmplitude;
-uniform float uFieldStrength;
 
 varying vec2 vUv;
 
@@ -89,37 +77,6 @@ vec4 effect(vec2 screenSize, vec2 screen_coords) {
     float pixel_size = length(screenSize.xy) / uPixelFilter;
     vec2 uv = (floor(screen_coords.xy * (1.0 / pixel_size)) * pixel_size - 0.5 * screenSize.xy) / length(screenSize.xy) - uOffset;
     float uv_len = length(uv);
-
-    vec2 mouse = uMouse * screenSize;
-vec2 pixelPos = screen_coords;
-vec2 dir = pixelPos - mouse;
-
-float dist = length(dir);
-float normDist = dist / (uMagnetRadius * screenSize.x);
-
-if (dist < uMagnetRadius * screenSize.x) {
-    float angle = atan(dir.y, dir.x);
-
-    float wave =
-        sin(iTime * uWaveSpeed + angle) *
-        uWaveAmplitude *
-        (1.0 - normDist);
-
-    float ring =
-        uRingRadius * (1.0 + wave) * screenSize.x * 0.02;
-
-    float strength =
-        (1.0 - normDist) *
-        uFieldStrength;
-
-    vec2 orbit =
-        vec2(cos(angle), sin(angle)) * ring;
-
-    vec2 repel =
-        normalize(dir) * strength * 10.0;
-
-    uv += (orbit + repel) / screenSize.x;
-}
     
     float speed = (uSpinRotation * uSpinEase * 0.2);
     if(uIsRotate){
@@ -166,8 +123,6 @@ void main() {
 `;
 
 export default function Balatro({
-  children,
-
   spinRotation = -2.0,
   spinSpeed = 7.0,
   offset = [0.0, 0.0],
@@ -181,31 +136,34 @@ export default function Balatro({
   spinEase = 1.0,
   isRotate = false,
   mouseInteraction = true,
-  magnetRadius = 0.25,
-  ringRadius = 6,
-  waveSpeed = 2,
-  waveAmplitude = 0.6,
-  fieldStrength = 1.5,
 }: BalatroProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
     const container = containerRef.current;
-    const renderer = new Renderer();
+    const renderer = new Renderer({
+      dpr: Math.min(window.devicePixelRatio || 1, 2),
+    });
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 1);
+
+    container.appendChild(gl.canvas);
+
+    gl.canvas.style.width = "100%";
+    gl.canvas.style.height = "100%";
+    gl.canvas.style.display = "block";
 
     let program: Program;
 
     function resize() {
-      renderer.setSize(container.offsetWidth, container.offsetHeight);
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+
+      renderer.setSize(width, height);
+
       if (program) {
-        program.uniforms.iResolution.value = [
-          gl.canvas.width,
-          gl.canvas.height,
-          gl.canvas.width / gl.canvas.height,
-        ];
+        program.uniforms.iResolution.value = [width, height, width / height];
       }
     }
     window.addEventListener("resize", resize);
@@ -237,11 +195,6 @@ export default function Balatro({
         uSpinEase: { value: spinEase },
         uIsRotate: { value: isRotate },
         uMouse: { value: [0.5, 0.5] },
-        uMagnetRadius: { value: magnetRadius },
-        uRingRadius: { value: ringRadius },
-        uWaveSpeed: { value: waveSpeed },
-        uWaveAmplitude: { value: waveAmplitude },
-        uFieldStrength: { value: fieldStrength },
       },
     });
 
@@ -286,16 +239,7 @@ export default function Balatro({
     spinEase,
     isRotate,
     mouseInteraction,
-    magnetRadius,
-    ringRadius,
-    waveSpeed,
-    waveAmplitude,
-    fieldStrength,
   ]);
 
-  return (
-    <div ref={containerRef} className="balatro-container">
-      <div className="balatro-overlay">{children}</div>
-    </div>
-  );
+  return <div ref={containerRef} className="balatro-container" />;
 }
