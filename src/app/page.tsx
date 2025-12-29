@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import styles from "./page.module.css";
 import Balatro from "../components/Balatro";
 import BubbleMenu from "@/components/navbar";
@@ -10,6 +11,8 @@ import GlassSurface from "@/components/liquidGlassButton";
 import { LetsWorkTogether } from "@/components/letsWork";
 
 import "../styles/hero.css";
+import logo from "../assets/Artex-logo.jpeg";
+
 
 const items = [
   {
@@ -21,28 +24,35 @@ const items = [
   },
   {
     label: "about",
-    href: "#",
+    href: "/about",
     ariaLabel: "About",
     rotation: 8,
     hoverStyles: { bgColor: "#10b981", textColor: "#ffffff" },
   },
   {
     label: "projects",
-    href: "#",
+    href: "/projects",
     ariaLabel: "Projects",
     rotation: 8,
     hoverStyles: { bgColor: "#f59e0b", textColor: "#ffffff" },
   },
   {
+    label: "services",
+    href: "/services",
+    ariaLabel: "Services",
+    rotation: 8,
+    hoverStyles: { bgColor: "#0be9f5ff", textColor: "#ffffff" },
+  },
+  {
     label: "blog",
-    href: "#",
+    href: "/blog",
     ariaLabel: "Blog",
     rotation: 8,
     hoverStyles: { bgColor: "#ef4444", textColor: "#ffffff" },
   },
   {
     label: "contact",
-    href: "#",
+    href: "/contact",
     ariaLabel: "Contact",
     rotation: -8,
     hoverStyles: { bgColor: "#8b5cf6", textColor: "#ffffff" },
@@ -56,7 +66,12 @@ export default function Home() {
         <div className="hero-wrapper">
           <Balatro isRotate={false} mouseInteraction={true} pixelFilter={800} />
           <BubbleMenu
-            logo={<span style={{ fontWeight: 700 }}>Artex Tech</span>}
+            logo={
+              <span style={{ fontWeight: 700, display: "flex", alignItems: "center", gap: 0 }}>
+                <Image src={logo} alt="Logo" width={33} height={33} />
+                Artex Tech
+              </span>
+            }
             items={items}
             menuAriaLabel="Toggle navigation"
             menuBg="#ffffff"
@@ -79,7 +94,7 @@ export default function Home() {
 
             <TextType
               text={[
-                "A vibrant community of innovators, creators, and tech enthusiasts pushing the boundaries of what's possible.",
+                "A vibrant team of innovators, creators, and tech enthusiasts pushing the boundaries of what's possible.",
               ]}
               typingSpeed={75}
               pauseDuration={1500}
@@ -95,7 +110,7 @@ export default function Home() {
               borderRadius={20}
               className="cta-button"
             >
-              <h2>Book Your Call Now</h2>
+              <h2><a href="https://cal.com/artex-tech-saad/15min" target="blank"  className="cta-text">Book Your Call Now</a></h2>
             </GlassSurface>
           </div>
         </div>

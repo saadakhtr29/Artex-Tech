@@ -1,8 +1,10 @@
-import type { CSSProperties, ReactNode } from 'react';
-import { useState, useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
+import type { CSSProperties, ReactNode } from "react";
+import { useState, useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import Image from "next/image";
 
-import '../styles/navbar.css';
+import "../styles/navbar.css";
+import logo from "../assets/Artex-logo.jpeg";
 
 type MenuItem = {
   label: string;
@@ -32,40 +34,47 @@ export type BubbleMenuProps = {
 
 const DEFAULT_ITEMS: MenuItem[] = [
   {
-    label: 'home',
-    href: '#',
-    ariaLabel: 'Home',
+    label: "home",
+    href: "/",
+    ariaLabel: "Home",
     rotation: -8,
-    hoverStyles: { bgColor: '#3b82f6', textColor: '#ffffff' }
+    hoverStyles: { bgColor: "#3b82f6", textColor: "#ffffff" },
   },
   {
-    label: 'about',
-    href: '#',
-    ariaLabel: 'About',
+    label: "about",
+    href: "/about",
+    ariaLabel: "About",
     rotation: 8,
-    hoverStyles: { bgColor: '#10b981', textColor: '#ffffff' }
+    hoverStyles: { bgColor: "#10b981", textColor: "#ffffff" },
   },
   {
-    label: 'projects',
-    href: '#',
-    ariaLabel: 'Documentation',
+    label: "projects",
+    href: "/projects",
+    ariaLabel: "Documentation",
     rotation: 8,
-    hoverStyles: { bgColor: '#f59e0b', textColor: '#ffffff' }
+    hoverStyles: { bgColor: "#f59e0b", textColor: "#ffffff" },
   },
   {
-    label: 'blog',
-    href: '#',
-    ariaLabel: 'Blog',
+    label: "services",
+    href: "/services",
+    ariaLabel: "Services",
     rotation: 8,
-    hoverStyles: { bgColor: '#ef4444', textColor: '#ffffff' }
+    hoverStyles: { bgColor: "#0be9f5ff", textColor: "#ffffff" },
   },
   {
-    label: 'contact',
-    href: '#',
-    ariaLabel: 'Contact',
+    label: "blog",
+    href: "/blog",
+    ariaLabel: "Blog",
+    rotation: 8,
+    hoverStyles: { bgColor: "#ef4444", textColor: "#ffffff" },
+  },
+  {
+    label: "contact",
+    href: "/contct",
+    ariaLabel: "Contact",
     rotation: -8,
-    hoverStyles: { bgColor: '#8b5cf6', textColor: '#ffffff' }
-  }
+    hoverStyles: { bgColor: "#8b5cf6", textColor: "#ffffff" },
+  },
 ];
 
 export default function BubbleMenu({
@@ -73,14 +82,14 @@ export default function BubbleMenu({
   onMenuClick,
   className,
   style,
-  menuAriaLabel = 'Toggle menu',
-  menuBg = '#fff',
-  menuContentColor = '#111',
+  menuAriaLabel = "Toggle menu",
+  menuBg = "#fff",
+  menuContentColor = "#111",
   useFixedPosition = false,
   items,
-  animationEase = 'back.out(1.5)',
+  animationEase = "back.out(1.5)",
   animationDuration = 0.5,
-  staggerDelay = 0.12
+  staggerDelay = 0.12,
 }: BubbleMenuProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
@@ -90,9 +99,13 @@ export default function BubbleMenu({
   const labelRefs = useRef<HTMLSpanElement[]>([]);
 
   const menuItems = items?.length ? items : DEFAULT_ITEMS;
-  const containerClassName = ['bubble-menu', useFixedPosition ? 'fixed' : 'absolute', className]
+  const containerClassName = [
+    "bubble-menu",
+    useFixedPosition ? "fixed" : "absolute",
+    className,
+  ]
     .filter(Boolean)
-    .join(' ');
+    .join(" ");
 
   const handleToggle = () => {
     const nextState = !isMenuOpen;
@@ -109,9 +122,9 @@ export default function BubbleMenu({
     if (!overlay || !bubbles.length) return;
 
     if (isMenuOpen) {
-      gsap.set(overlay, { display: 'flex' });
+      gsap.set(overlay, { display: "flex" });
       gsap.killTweensOf([...bubbles, ...labels]);
-      gsap.set(bubbles, { scale: 0, transformOrigin: '50% 50%' });
+      gsap.set(bubbles, { scale: 0, transformOrigin: "50% 50%" });
       gsap.set(labels, { y: 24, autoAlpha: 0 });
 
       bubbles.forEach((bubble, i) => {
@@ -121,7 +134,7 @@ export default function BubbleMenu({
         tl.to(bubble, {
           scale: 1,
           duration: animationDuration,
-          ease: animationEase
+          ease: animationEase,
         });
         if (labels[i]) {
           tl.to(
@@ -130,7 +143,7 @@ export default function BubbleMenu({
               y: 0,
               autoAlpha: 1,
               duration: animationDuration,
-              ease: 'power3.out'
+              ease: "power3.out",
             },
             `-=${animationDuration * 0.9}`
           );
@@ -142,16 +155,16 @@ export default function BubbleMenu({
         y: 24,
         autoAlpha: 0,
         duration: 0.2,
-        ease: 'power3.in'
+        ease: "power3.in",
       });
       gsap.to(bubbles, {
         scale: 0,
         duration: 0.2,
-        ease: 'power3.in',
+        ease: "power3.in",
         onComplete: () => {
-          gsap.set(overlay, { display: 'none' });
+          gsap.set(overlay, { display: "none" });
           setShowOverlay(false);
-        }
+        },
       });
     }
   }, [isMenuOpen, showOverlay, animationEase, animationDuration, staggerDelay]);
@@ -165,42 +178,64 @@ export default function BubbleMenu({
         bubbles.forEach((bubble, i) => {
           const item = menuItems[i];
           if (bubble && item) {
-            const rotation = isDesktop ? (item.rotation ?? 0) : 0;
+            const rotation = isDesktop ? item.rotation ?? 0 : 0;
             gsap.set(bubble, { rotation });
           }
         });
       }
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [isMenuOpen, menuItems]);
 
   return (
     <>
-      <nav className={containerClassName} style={style} aria-label="Main navigation">
-        <div className="bubble logo-bubble" aria-label="Logo" style={{ background: menuBg }}>
+      <nav
+        className={containerClassName}
+        style={style}
+        aria-label="Main navigation"
+      >
+        <div
+          className="bubble logo-bubble"
+          aria-label="Logo"
+          style={{ background: menuBg }}
+        >
           <span className="logo-content">
-            {typeof logo === 'string' ? <img src={logo} alt="Logo" className="bubble-logo" /> : logo}
+            {typeof logo === "string" ? (
+              <Image src={logo} alt="Logo" width={28} height={28} />
+            ) : (
+              logo
+            )}
           </span>
         </div>
 
         <button
           type="button"
-          className={`bubble toggle-bubble menu-btn ${isMenuOpen ? 'open' : ''}`}
+          className={`bubble toggle-bubble menu-btn ${
+            isMenuOpen ? "open" : ""
+          }`}
           onClick={handleToggle}
           aria-label={menuAriaLabel}
           aria-pressed={isMenuOpen}
           style={{ background: menuBg }}
         >
-          <span className="menu-line" style={{ background: menuContentColor }} />
-          <span className="menu-line short" style={{ background: menuContentColor }} />
+          <span
+            className="menu-line"
+            style={{ background: menuContentColor }}
+          />
+          <span
+            className="menu-line short"
+            style={{ background: menuContentColor }}
+          />
         </button>
       </nav>
       {showOverlay && (
         <div
           ref={overlayRef}
-          className={`bubble-menu-items ${useFixedPosition ? 'fixed' : 'absolute'}`}
+          className={`bubble-menu-items ${
+            useFixedPosition ? "fixed" : "absolute"
+          }`}
           aria-hidden={!isMenuOpen}
         >
           <ul className="pill-list" role="menu" aria-label="Menu links">
@@ -213,20 +248,21 @@ export default function BubbleMenu({
                   className="pill-link"
                   style={
                     {
-                      '--item-rot': `${item.rotation ?? 0}deg`,
-                      '--pill-bg': menuBg,
-                      '--pill-color': menuContentColor,
-                      '--hover-bg': item.hoverStyles?.bgColor || '#f3f4f6',
-                      '--hover-color': item.hoverStyles?.textColor || menuContentColor
+                      "--item-rot": `${item.rotation ?? 0}deg`,
+                      "--pill-bg": menuBg,
+                      "--pill-color": menuContentColor,
+                      "--hover-bg": item.hoverStyles?.bgColor || "#f3f4f6",
+                      "--hover-color":
+                        item.hoverStyles?.textColor || menuContentColor,
                     } as CSSProperties
                   }
-                  ref={el => {
+                  ref={(el) => {
                     if (el) bubblesRef.current[idx] = el;
                   }}
                 >
                   <span
                     className="pill-label"
-                    ref={el => {
+                    ref={(el) => {
                       if (el) labelRefs.current[idx] = el;
                     }}
                   >

@@ -16,6 +16,12 @@ import {
   Star,
   Zap,
   TrendingUp,
+   Code,
+  Globe,
+  Cpu,
+  Smartphone,
+  Database,
+  ShieldCheck,
 } from "lucide-react";
 import {
   motion,
@@ -67,56 +73,60 @@ export default function About() {
   };
 
   const services = [
-    {
-      icon: <Pen />,
-      secondaryIcon: <Sparkles className="secondary-icon" />,
-      title: "Interior",
-      description:
-        "Transform your living spaces with our expert interior design services.",
-      position: "left",
-    },
-    {
-      icon: <Home />,
-      secondaryIcon: <CheckCircle className="secondary-icon" />,
-      title: "Exterior",
-      description: "Make a lasting impression with stunning exterior designs.",
-      position: "left",
-    },
-    {
-      icon: <PenTool />,
-      secondaryIcon: <Star className="secondary-icon" />,
-      title: "Design",
-      description:
-        "Our innovative design process blends creativity and practicality.",
-      position: "left",
-    },
-    {
-      icon: <PaintBucket />,
-      secondaryIcon: <Sparkles className="secondary-icon" />,
-      title: "Decoration",
-      description: "Elevate your space with curated decoration services.",
-      position: "right",
-    },
-    {
-      icon: <Ruler />,
-      secondaryIcon: <CheckCircle className="secondary-icon" />,
-      title: "Planning",
-      description: "Our meticulous planning ensures smooth execution.",
-      position: "right",
-    },
-    {
-      icon: <Building2 />,
-      secondaryIcon: <Star className="secondary-icon" />,
-      title: "Execution",
-      description: "Flawless execution to bring your dream space to life.",
-      position: "right",
-    },
-  ];
+  {
+    icon: <Code />,
+    secondaryIcon: <Sparkles className="secondary-icon" />,
+    title: "Custom Web Development",
+    description:
+      "High-performance, SEO-friendly websites and web applications built with modern frameworks like React, Next.js, and Node.js to scale your business online.",
+    position: "left",
+  },
+  {
+    icon: <Globe />,
+    secondaryIcon: <CheckCircle className="secondary-icon" />,
+    title: "UI/UX Design & Branding",
+    description:
+      "User-centric UI/UX design focused on conversion, accessibility, and brand identity to deliver intuitive digital experiences that users love.",
+    position: "left",
+  },
+  {
+    icon: <Cpu />,
+    secondaryIcon: <Star className="secondary-icon" />,
+    title: "AI & Automation Solutions",
+    description:
+      "Custom AI solutions including chatbots, AI agents, process automation, and intelligent systems to optimize operations and drive business growth.",
+    position: "left",
+  },
+  {
+    icon: <Smartphone />,
+    secondaryIcon: <Sparkles className="secondary-icon" />,
+    title: "Mobile App Development",
+    description:
+      "Cross-platform and native mobile app development for iOS and Android using React Native and modern technologies for fast, secure performance.",
+    position: "right",
+  },
+  {
+    icon: <Database />,
+    secondaryIcon: <CheckCircle className="secondary-icon" />,
+    title: "Backend, Cloud & DevOps",
+    description:
+      "Scalable backend architectures, cloud deployment, APIs, and DevOps solutions using AWS, Firebase, and containerized infrastructures.",
+    position: "right",
+  },
+  {
+    icon: <ShieldCheck />,
+    secondaryIcon: <Star className="secondary-icon" />,
+    title: "Web3 & Blockchain Development",
+    description:
+      "Secure blockchain, smart contract, and Web3 solutions including tokenization, dApps, and decentralized platforms built on Ethereum and Sui.",
+    position: "right",
+  },
+];
 
   const stats = [
-    { icon: <Award />, value: 150, label: "Projects Completed", suffix: "+" },
-    { icon: <Users />, value: 1200, label: "Happy Clients", suffix: "+" },
-    { icon: <Calendar />, value: 12, label: "Years Experience", suffix: "" },
+    { icon: <Award />, value: 25, label: "Projects Completed", suffix: "+" },
+    { icon: <Users />, value: 120, label: "Happy Clients", suffix: "+" },
+    { icon: <Calendar />, value: 3, label: "Years Experience", suffix: "" },
     {
       icon: <TrendingUp />,
       value: 98,
@@ -147,7 +157,7 @@ export default function About() {
         </motion.div>
 
         <motion.p className="intro-text" variants={itemVariants}>
-          We are a passionate team of designers and architects creating
+          We are a passionate team of designers, architects and developers creating
           beautiful, functional spaces that inspire everyday living.
         </motion.p>
 

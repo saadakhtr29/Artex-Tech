@@ -12,34 +12,35 @@
 
 .hero-content {
   position: relative;
-  padding: 2rem;
-  margin-top: 12rem;
+  padding: 1.5rem;
+  margin-top: 8rem;
   z-index: 2;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  justify-content: center;
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-size: clamp(2rem, 8vw, 3.2rem);
   font-weight: 900;
-  margin-bottom: 1.5rem;
-  justify-content: center;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
   color: cornsilk;
-  background-clip: text;
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
-  margin-bottom: 3rem;
-  max-width: 48rem;
-  margin: 0 auto 3rem auto;
+  font-size: 1rem;
+  max-width: 36rem;
+  margin: 0 auto 2.5rem auto;
   color: #fff8dc;
-  animation-delay: 200ms;
 }
 
 .navbar {
   display: flex;
   align-items: center;
-  justify-items: center;
   position: relative;
   z-index: 3;
 }
@@ -47,20 +48,157 @@
 .hero-cta {
   position: absolute;
   left: 50%;
-  bottom: 25%;
+  bottom: 18%;
   transform: translateX(-50%);
   z-index: 4;
 }
 
-.cta-button{
+.cta-button {
   display: flex;
   align-items: center;
-  justify-items: center;
   justify-content: center;
 }
 
-.cta-button h2{
-  font-size: 20px;
-  font-weight: 200;
+.cta-button h2 {
+  font-size: 1rem;
+  font-weight: 300;
   color: #fff8dc;
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    margin-top: 6.5rem;
+    padding: 1.25rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-cta {
+    bottom: 14%;
+  }
+
+  .cta-button h2 {
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .hero-content {
+    margin-top: 7.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .hero-cta {
+    bottom: 16%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .hero-content {
+    margin-top: 9rem;
+    padding: 2rem;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    max-width: 42rem;
+  }
+
+  .hero-cta {
+    bottom: 20%;
+  }
+
+  .cta-button h2 {
+    font-size: 1.05rem;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .hero-content {
+    margin-top: 10rem;
+    padding: 2.5rem;
+  }
+
+  .hero-title {
+    font-size: 3.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    max-width: 46rem;
+  }
+
+  .hero-cta {
+    bottom: 22%;
+  }
+
+  .cta-button h2 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1919px) {
+  .hero-content {
+    margin-top: 11.5rem;
+    padding: 3rem;
+  }
+
+  .hero-title {
+    font-size: 4.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    max-width: 48rem;
+  }
+
+  .hero-cta {
+    bottom: 25%;
+  }
+
+  .cta-button h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .hero-content {
+    margin-top: 14rem;
+    padding: 4rem;
+  }
+
+  .hero-title {
+    font-size: 5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.35rem;
+    max-width: 52rem;
+  }
+
+  .hero-cta {
+    bottom: 28%;
+  }
+
+  .cta-button h2 {
+    font-size: 1.35rem;
+  }
 }

@@ -21,7 +21,7 @@ export function LetsWorkTogether() {
   }
 
   const handleBookCall = () => {
-    window.open("https://cal.com/jatin-yadav05/15min", "_blank")
+    window.open("https://cal.com/artex-tech-saad/15min", "_blank")
   }
 
   return (
@@ -221,9 +221,9 @@ export function LetsWorkTogether() {
           }}
         >
           <p>
-            Have a project in mind? I'd love to hear about it. Let's create something exceptional together.
+            Have a project in mind? We'd love to hear about it. Let's create something exceptional together.
           </p>
-          <span>hello@example.com</span>
+          <span>contact@artextech.com</span>
         </div>
       </div>
     </section>
