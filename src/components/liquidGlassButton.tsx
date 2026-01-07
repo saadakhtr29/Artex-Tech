@@ -304,7 +304,7 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
         </defs>
       </svg>
 
-      <div className="glass-surface__content">{children}</div>
+      <div className="glass-surface-content">{children}</div>
     </div>
   );
 };

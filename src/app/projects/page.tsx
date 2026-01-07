@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const metadata = {
   title: "Projects | Artex Tech",
   description: "This page is currently under maintenance.",
@@ -24,6 +26,21 @@ export default function ServicesFallback() {
           Our engineers are on it.<br />
           We’ll be back soon.
         </p>
+
+        <Link
+          href="/"
+          style={{
+            display: "inline-block",
+            marginTop: "2rem",
+            padding: "0.75rem 1.5rem",
+            borderRadius: "8px",
+            background: "#88734C",
+            color: "#fff",
+            textDecoration: "none",
+          }}
+        >
+          Back to Home
+        </Link>
       </div>
     </section>
   );

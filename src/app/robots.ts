@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://artex-tech.vercel.app/sitemap.xml",
+    sitemap: "https://www.artextech.studio/sitemap.xml",
   };
 }

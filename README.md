@@ -11,7 +11,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
 
-[Live Demo](https://artex-tech.vercel.app) · [Report Bug](https://github.com/saadakhtr29/artex-tech/issues) · [Request Feature](https://github.com/saadakhtr29/artex-tech/issues)
+[Live Demo](https://artex-tech.vercel.app) · [Report Bug](https://github.com/yourusername/artex-tech/issues) · [Request Feature](https://github.com/yourusername/artex-tech/issues)
 
 </div>
 
@@ -112,7 +112,7 @@ Artex Tech is a cutting-edge portfolio and service showcase website built with N
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/saadakhtr29/artex-tech.git
+   git clone https://github.com/yourusername/artex-tech.git
    cd artex-tech
    ```
 
@@ -480,6 +480,11 @@ Contributions are welcome! Please follow these steps:
 }
 ```
 
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
@@ -522,6 +527,6 @@ Contributions are welcome! Please follow these steps:
 
 ⭐ Star this repo if you find it helpful!
 
-[⬆ Back to Top](#artex-tech---Scalable-Software,-AI-&-Web3-Solutions)
+[⬆ Back to Top](#artex-tech---modern-web-development-portfolio)
 
 </div>

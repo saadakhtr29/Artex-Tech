@@ -7,6 +7,11 @@
   overflow: hidden;
 }
 
+.about-section::selection{
+  background: rgb(38, 89, 11);
+    color: #fff8dc;
+}
+
 .container {
   max-width: 72rem;
   margin: 0 auto;

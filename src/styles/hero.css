@@ -5,6 +5,11 @@
   overflow: hidden;
 }
 
+.hero-section::selection {
+  background: #fff8dc;
+  color: rgb(38, 89, 11);
+}
+
 .hero-wrapper {
   width: 100%;
   height: 100%;
@@ -24,6 +29,7 @@
 .hero-title {
   font-size: clamp(2rem, 8vw, 3.2rem);
   font-weight: 900;
+  font-family: monospace;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,6 +63,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+a.cta-text::selection {
+  background: #fff8dc;
+  color: rgb(38, 89, 11);
 }
 
 .cta-button h2 {
@@ -162,7 +173,8 @@
   }
 
   .hero-title {
-    font-size: 4.2rem;
+    font-size: 4.8rem;
+    letter-spacing: -0.2rem;
   }
 
   .hero-subtitle {

@@ -18,7 +18,7 @@
   z-index: -1;
 }
 
-.glass-surface__content {
+.glass-surface-content {
   width: 100%;
   height: 100%;
   display: flex;
@@ -29,6 +29,11 @@
   border-radius: inherit;
   position: relative;
   z-index: 1;
+}
+
+.glass-surface-content::selection{
+  background: rgb(38, 89, 11);
+    color: #fff8dc;
 }
 
 .glass-surface--svg {

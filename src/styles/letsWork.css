@@ -6,6 +6,11 @@
   padding: 0 1.5rem;
 }
 
+.lw-section::selection{
+  background: rgb(38, 89, 11);
+    color: #fff8dc;
+}
+
 .lw-container {
   position: relative;
   display: flex;

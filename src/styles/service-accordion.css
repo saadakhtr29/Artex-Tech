@@ -1,0 +1,116 @@
+/* WRAPPER */
+.ua-wrapper {
+  width: 100%;
+  max-width: 60rem;
+}
+
+/* LIST */
+.ua-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* BUTTON */
+.ua-button {
+  width: 100%;
+  position: relative;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* HEADER ROW */
+.ua-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem 0.25rem;
+}
+
+/* NUMBER */
+.ua-number-wrap {
+  position: relative;
+  width: 12.5rem;
+  height: 12.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ua-number-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgb(255, 48, 48);
+}
+
+.ua-number {
+  position: relative;
+  z-index: 2;
+  font-size: 6.875rem;
+  font-weight: 600;
+  font-family: monospace;
+  letter-spacing: 0.05em;
+}
+
+/* TITLE */
+.ua-title {
+  letter-spacing: -0.01em;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+/* INDICATOR */
+.ua-indicator {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.ua-plus-wrap {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ua-plus {
+  color: var(--foreground);
+}
+
+/* LINES */
+.ua-line-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: gray;
+}
+
+.ua-line-active {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: gray;
+  transform-origin: left;
+}
+
+/* CONTENT */
+.ua-content-wrap {
+  overflow: hidden;
+}
+
+.ua-content {
+  padding-left: 4rem;
+  padding-right: 3rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  color: black;
+  line-height: 1.65;
+}

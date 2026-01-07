@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
  * Global SEO Metadata
  */
 export const metadata: Metadata = {
-  metadataBase: new URL("https://artex-tech.vercel.app"),
+  metadataBase: new URL("https://www.artextech.studio"),
 
   title: {
     default: "Artex Tech – Scalable Software, AI & Web3 Solutions",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     "SaaS development",
   ],
 
-  authors: [{ name: "Artex Tech", url: "https://artex-tech.vercel.app" }],
+  authors: [{ name: "Artex Tech", url: "https://www.artextech.studio" }],
   creator: "Artex Tech",
   publisher: "Artex Tech",
 
@@ -57,19 +57,19 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "https://artex-tech.vercel.app",
+    canonical: "https://artextech.studio/",
   },
 
   openGraph: {
     type: "website",
-    url: "https://artex-tech.vercel.app",
+    url: "https://www.artextech.studio",
     title: "Artex Tech – Scalable Software, AI & Web3 Solutions",
     description:
       "We design and build scalable software, AI systems, and Web3 platforms for startups and enterprises.",
     siteName: "Artex Tech",
     images: [
       {
-        url: "/og-image.png",
+        url: "/android-chrome-512x512.png",
         width: 1200,
         height: 630,
         alt: "Artex Tech – Software & AI Solutions",
@@ -82,13 +82,13 @@ export const metadata: Metadata = {
     title: "Artex Tech – Scalable Software, AI & Web3 Solutions",
     description:
       "We help startups and enterprises build scalable web, mobile, AI, and Web3 products.",
-    images: ["/og-image.png"],
+    images: ["/android-chrome-512x512.png"],
     creator: "@artextech",
   },
 
   icons: {
-    icon: "/icon.png",
-    apple: "/apple-icon.png",
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 

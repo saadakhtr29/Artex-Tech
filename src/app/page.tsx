@@ -45,7 +45,7 @@ const items = [
   },
   {
     label: "blog",
-    href: "/blog",
+    href: "/blogs",
     ariaLabel: "Blog",
     rotation: 8,
     hoverStyles: { bgColor: "#ef4444", textColor: "#ffffff" },
