@@ -1,0 +1,50 @@
+/* SECTION */
+.fs-section {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 350vh;
+  width: 100vw;
+  overflow: hidden;
+  background: #fafdee;
+  padding: 0 1rem;
+  color: #1f3a4b;
+}
+
+/* HERO BLOCK */
+.fs-hero {
+  position: relative;
+  margin-top: 10.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+  width: fit-content;
+}
+
+/* SVG LINE */
+.service-scroll-path {
+  position: absolute;
+  top: -15%;
+  left: 57%;
+  transform: translateX(-50%);
+  width: 1200px;
+  max-width: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .service-scroll-path{
+        display: none;
+    }
+}
+
+@media (min-width: 360px) and (max-width: 480px) {
+    .service-scroll-path{
+        display: none;
+    }
+}

@@ -1,3 +1,64 @@
-.footer-wrapper{
-    background: #000;
+.footer-wrapper {
+  position: relative;
+  background-color: #0e0e0e;
+  background-image: url(@/assets/noise.png);
+  min-height: 35vh;
+  height: 45vh;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5rem 5rem 0% 0%;
+}
+
+.footer-text {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f2f3ec;
+  font-size: 25rem;
+  padding: 0;
+  margin: 0;
+  bottom: -1rem;
+}
+
+.footer-subtext {
+  font-size: 3rem;
+  color: #f2f3ec;
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .footer-wrapper{
+        width: 100%;
+        min-height: 20vh;
+        height: 32vh;
+    }
+
+    .footer-text{
+        font-size: 13.6rem;
+        padding: 0;
+        margin: 0;
+        bottom: -2.5rem;
+    }
+    
+    .footer-subtext{
+        font-size: 2rem;
+    }
+}
+@media (min-width: 360px) and (max-width: 480px) {
+    .footer-wrapper{
+        width: 100%;
+        min-height: 10vh;
+        height: 17vh;
+    }
+
+    .footer-text{
+        font-size: 8rem;
+        padding: 0;
+        margin: 0;
+        bottom: -3rem;
+    }
+    
+    .footer-subtext{
+        font-size: 1.2rem;
+    }
 }

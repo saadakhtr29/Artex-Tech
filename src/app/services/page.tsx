@@ -1,9 +1,12 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import { useScroll } from "framer-motion";
 import BubbleMenu from "@/components/navbar";
 import { ServiceAccordion } from "@/components/service-accordion";
 import Footer from "@/components/footer";
+import { LinePath } from "@/components/followScroll";
 import { ArrowUpRight } from "lucide-react";
 
 import logo from "../../assets/Artex-logo.jpeg";
@@ -62,8 +65,26 @@ const items = [
 ];
 
 export default function Services() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ["start end", "end start"],
+  });
+
   return (
-    <section className="service-wrapper">
+    <section className="service-wrapper" ref={scrollRef}>
+      {mounted && (
+        <LinePath
+          className="service-scroll-path"
+          scrollYProgress={scrollYProgress}
+        />
+      )}
       <div className="service-hero">
         <BubbleMenu
           logo={
@@ -72,7 +93,6 @@ export default function Services() {
                 fontWeight: 700,
                 display: "flex",
                 alignItems: "center",
-                gap: 0,
               }}
             >
               <Image src={logo} alt="Logo" width={33} height={33} />
@@ -94,8 +114,7 @@ export default function Services() {
             WE ARE THE TEAM OF VISUAL & MULTIVERSE DESIGNERS AND DEVELOPERS
           </h1>
           <Link href="/contact" className="service-contact-link">
-            GET IN TOUCH
-            <ArrowUpRight />
+            GET IN TOUCH <ArrowUpRight />
           </Link>
         </div>
       </div>
@@ -103,25 +122,20 @@ export default function Services() {
         <ServiceAccordion />
       </div>
       <div className="service-team">
-        <Image
-          className="service-img"
-          src={team}
-          alt="Artex Tech Team"
-          width={850}
-          height={500}
-        />
+        <Image className="service-img" src={team} alt="Artex Tech Team" />
         <p className="service-team-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit sequi
-          quisquam ea molestias. Natus officiis adipisci exercitationem? Dolor,
-          hic. Obcaecati sed, blanditiis ex fugit harum accusantium
-          necessitatibus nobis.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
+          quibusdam necessitatibus enim sequi fugit commodi ad minima, laborum
+          nemo odit quasi odio vero explicabo voluptatibus. Dolores asperiores
+          iure recusandae accusamus.
         </p>
       </div>
+
       <div className="service-contact-wrapper">
         <Link href="/contact" className="service-contact-heading">
-        CONTACT US
-      </Link>
-      <ArrowUpRight style={{scale: 5}}/>
+          LET&apos;S MAKE IT HAPPEN
+          <ArrowUpRight className="service-contact-arrow" />
+        </Link>
       </div>
       <Footer />
     </section>

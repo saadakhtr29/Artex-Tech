@@ -114,3 +114,64 @@
   color: black;
   line-height: 1.65;
 }
+
+/* 481px – 767px (Large phones) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .ua-header {
+    align-items: flex-start;
+  }
+
+  .ua-number-wrap {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .ua-number {
+    font-size: 3.5rem;
+  }
+
+  .ua-title {
+    font-size: 1.5rem;
+  }
+
+  .ua-plus-wrap {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .ua-content {
+    padding: 1.25rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* 360px – 480px (Small phones) */
+@media (min-width: 360px) and (max-width: 480px) {
+  .ua-header {
+    gap: 0.75rem;
+  }
+
+  .ua-number-wrap {
+    width: 4.75rem;
+    height: 4.75rem;
+  }
+
+  .ua-number {
+    font-size: 2.8rem;
+  }
+
+  .ua-title {
+    font-size: 1.3rem;
+  }
+
+  .ua-plus-wrap {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .ua-content {
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
