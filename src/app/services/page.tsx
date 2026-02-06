@@ -124,10 +124,7 @@ export default function Services() {
       <div className="service-team">
         <Image className="service-img" src={team} alt="Artex Tech Team" />
         <p className="service-team-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
-          quibusdam necessitatibus enim sequi fugit commodi ad minima, laborum
-          nemo odit quasi odio vero explicabo voluptatibus. Dolores asperiores
-          iure recusandae accusamus.
+          We are a team of visionary designers, full-stack developers, and problem-solvers shaping the future of digital experiences. At Artex Tech, we specialize in modern UI/UX design, web and mobile development, AI-powered solutions, and scalable digital products tailored for real-world impact. By combining strategy, innovation, and execution, we help brands stand out, scale faster, and turn ideas into powerful digital realities.
         </p>
       </div>
 
